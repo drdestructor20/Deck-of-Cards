@@ -4,7 +4,7 @@
 
 import random
 
-class Cards:
+class Card:
     def __init__(self, rank, suit):
         self.rank = rank
         self.suit = suit
@@ -22,7 +22,7 @@ class Deck:
         self.deck = [Card(rank,suit) for suit in self.suits for rank in self.ranks]
         random.shuffle(self.deck)
         
-    def deal_cards(self, numb_cards):
+    def deal_cards(self, num_cards):
         dealt_cards = self.deck[:num_cards]
         self.deck =self.deck[num_cards:]
         return dealt_cards
@@ -34,7 +34,7 @@ def main():
     deck = Deck()
     
     print("Welcome To The Card Dealer 3000!\n",
-          "I Have Shuffled A Deck of 52 Cards.\n")
+          "\nI Have Shuffled A Deck of 52 Cards.\n")
     
     while True:
         try:
@@ -51,10 +51,10 @@ def main():
             continue
         
         remaining = deck.remaining_cards()
-        print(f"\nThere Are {remaining} Cards Left In The Deck.\n")
-        print("Good Luck My Friend!\n")
+        print(f"\nThere Are {remaining} Cards Left In The Deck.\n",
+              "\nGood Luck My Friend!\n")
        
-        input("Press Any Key To Deal Again...")
+        input("Press Enter To Deal Again...\n")
         
         if remaining == 0:
             print("There Are No More Cards To Deal. Thank You For Playing!")
